@@ -18,8 +18,6 @@ jobs:
       - run: npm run build
 
       - uses: shinyinc/action-aws-cli@v1.2
-      - run: aws --version
-      - run: aws configure list
       - run: aws s3 sync dist s3://mfe-dashboard-ck/container/latest
         env:
           AWS_ACCESS_KEY_ID: AKIA24RMWDEKR4HVY6QE
