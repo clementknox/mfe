@@ -3,10 +3,11 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const commonConfig = require("./webpack.common");
 const packageJson = require("../package.json");
 const domain = process.env.PRODUCTION_DOMAIN;
-const prodCongig = {
+const prodConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
+    publicPath: "/container/latest/",
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -16,4 +17,4 @@ const prodCongig = {
     }),
   ],
 };
-module.exports = merge(commonConfig, prodCongig);
+module.exports = merge(commonConfig, prodConfig);
